@@ -27,31 +27,13 @@ public class FilmController {
     ) {
         if(!isVoid(title) && !isVoid(year)) {
             if(!isVoid(op)) {
-                switch(op) {
-                    case "GT":
-                        return new ResponseEntity<>(this.filmService.findByTitleAndYearGreaterThan(title, year) , HttpStatus.OK);
-                    case "GTE":
-                        return new ResponseEntity<>(this.filmService.findByTitleAndYearGreaterThanEqual(title, year) , HttpStatus.OK);
-                    case "LT":
-                        return new ResponseEntity<>(this.filmService.findByTitleAndYearLessThan(title, year) , HttpStatus.OK);
-                    case "LTE":
-                        return new ResponseEntity<>(this.filmService.findByTitleAndYearLessThanEqual(title, year) , HttpStatus.OK);
-                }    
+                return new ResponseEntity<>(this.filmService.findByTitleAndYearWithOp(title, year, op) , HttpStatus.OK);
             }
             return new ResponseEntity<>(this.filmService.findByTitleAndYear(title, year) , HttpStatus.OK);
         }
         if(!isVoid(year)) {
             if(!isVoid(op)) {
-                switch(op) {
-                    case "GT":
-                        return new ResponseEntity<>(this.filmService.findByYearGreaterThan(year) , HttpStatus.OK);
-                    case "GTE":
-                        return new ResponseEntity<>(this.filmService.findByYearGreaterThanEqual(year) , HttpStatus.OK);
-                    case "LT":
-                        return new ResponseEntity<>(this.filmService.findByYearLessThan(year) , HttpStatus.OK);
-                    case "LTE":
-                        return new ResponseEntity<>(this.filmService.findByYearLessThanEqual(year) , HttpStatus.OK);
-                }    
+                return new ResponseEntity<>(this.filmService.findByYearWithOp(year, op) , HttpStatus.OK);
             }
             return new ResponseEntity<>(this.filmService.findByYear(year) , HttpStatus.OK);
         }
@@ -59,7 +41,6 @@ public class FilmController {
             return new ResponseEntity<>(this.filmService.findByTitle(title) , HttpStatus.OK);
         }
         return new ResponseEntity<>(this.filmService.getFilms(), HttpStatus.OK);
-        
     }
 
     private boolean isVoid(String token) {

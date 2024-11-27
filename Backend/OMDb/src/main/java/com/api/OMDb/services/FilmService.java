@@ -14,14 +14,14 @@ import com.api.OMDb.repositories.IFilmRepository;
 public class FilmService {
     
     @Autowired
-    IFilmRepository filmRepository;
+    private IFilmRepository filmRepository;
 
     public ArrayList<FilmModel> getFilms() {
-        return (ArrayList<FilmModel>) filmRepository.findAll();
+        return (ArrayList<FilmModel>) this.filmRepository.findAll();
      }
 
     public FilmModel saveFilm(FilmModel film) {
-        return filmRepository.save(film);
+        return this.filmRepository.save(film);
     }
 
     public List<FilmModel> saveFilms(List<DetailedMovieModel> detailedMovies) {
@@ -41,47 +41,47 @@ public class FilmService {
     }
 
     public List<FilmModel> findByTitle(String title) {
-        return filmRepository.findByTitleContainingIgnoreCase(title);
+        return this.filmRepository.findByTitleContainingIgnoreCase(title);
     }
 
     public List<FilmModel> findByYear(String year) {
-        return filmRepository.findByYear(year);
+        return this.filmRepository.findByYear(year);
     }
 
     public List<FilmModel> findByTitleAndYear(String title, String year) {
-        return filmRepository.findByTitleContainingIgnoreCaseAndYear(title, year);
+        return this.filmRepository.findByTitleContainingIgnoreCaseAndYear(title, year);
     }
 
-    public List<FilmModel> findByTitleAndYearGreaterThanEqual(String title, String year) {
-        return filmRepository.findByTitleContainingIgnoreCaseAndYearGreaterThanEqual(title, year);
+    public List<FilmModel> findByTitleAndYearWithOp(String title, String year, String op) {
+        switch(op) {
+            case "GT":
+                return this.filmRepository.findByTitleContainingIgnoreCaseAndYearGreaterThan(title, year);
+            case "GTE":
+                return this.filmRepository.findByTitleContainingIgnoreCaseAndYearGreaterThanEqual(title, year);
+            case "LT":
+                return this.filmRepository.findByTitleContainingIgnoreCaseAndYearLessThan(title, year);
+            case "LTE":
+                return this.filmRepository.findByTitleContainingIgnoreCaseAndYearLessThanEqual(title, year);
+            default:
+                throw new IllegalArgumentException("Operador no soportado: " + op);
+        }
     }
 
-    public List<FilmModel> findByTitleAndYearGreaterThan(String title, String year) {
-        return filmRepository.findByTitleContainingIgnoreCaseAndYearGreaterThan(title, year);
+    public List<FilmModel> findByYearWithOp (String year, String op) {
+        switch(op) {
+            case "GT":
+                return this.filmRepository.findByYearGreaterThan(year);
+            case "GTE":
+                return this.filmRepository.findByYearGreaterThanEqual(year);
+            case "LT":
+                return this.filmRepository.findByYearLessThan(year);
+            case "LTE":
+                return this.filmRepository.findByYearLessThanEqual(year);
+            default:
+                throw new IllegalArgumentException("Operador no soportado: " + op);
+        }
     }
 
-    public List<FilmModel> findByTitleAndYearLessThanEqual(String title, String year) {
-        return filmRepository.findByTitleContainingIgnoreCaseAndYearLessThanEqual(title, year);
-    }
 
-    public List<FilmModel> findByTitleAndYearLessThan(String title, String year) {
-        return filmRepository.findByTitleContainingIgnoreCaseAndYearLessThan(title, year);
-    }
-
-    public List<FilmModel> findByYearGreaterThanEqual( String year) {
-        return filmRepository.findByYearGreaterThanEqual(year);
-    }
-
-    public List<FilmModel> findByYearGreaterThan(String year) {
-        return filmRepository.findByYearGreaterThan(year);
-    }
-
-    public List<FilmModel> findByYearLessThanEqual(String year) {
-        return filmRepository.findByYearLessThan(year);
-    }
-
-    public List<FilmModel> findByYearLessThan(String year) {
-        return filmRepository.findByYearLessThanEqual(year);
-    }
     
 }
