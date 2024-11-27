@@ -22,9 +22,13 @@ public class FilmController {
     @GetMapping("/")
     public ResponseEntity<List<FilmModel>> getAllMovies(
             @RequestParam(required = false) String title,
-            @RequestParam(required = false) String year
+            @RequestParam(required = false) String year,
+            @RequestParam(required = false) String op  // GT || LT || GTE || LTE 
         ) {
         if(!isVoid(title) && !isVoid(year)) {
+            if(!isVoid(op) && op.equals("GTE")) {
+                return new ResponseEntity<>(this.filmService.findByTitleAndYearGreaterThanEqual(title, year) , HttpStatus.OK);
+            }
             return new ResponseEntity<>(this.filmService.findByTitleAndYear(title, year) , HttpStatus.OK);
         }
         if(!isVoid(title)) {
