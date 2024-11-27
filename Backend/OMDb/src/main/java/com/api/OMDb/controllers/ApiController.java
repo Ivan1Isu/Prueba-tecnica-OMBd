@@ -1,6 +1,5 @@
 package com.api.OMDb.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.OMDb.models.DetailedMovieModel;
 import com.api.OMDb.models.MovieModel;
 import com.api.OMDb.services.ApiService;
+import com.api.OMDb.services.FilmService;
 
 @RestController
 @RequestMapping("/api")
@@ -20,19 +20,20 @@ public class ApiController {
     @Autowired
     private ApiService apiService;
 
+    @Autowired
+    private FilmService filmService;
+
     @GetMapping("/")
     public ResponseEntity<List<MovieModel>> getAllMovies(){
         return new ResponseEntity<>(this.apiService.getMovies(), HttpStatus.OK);
     }
 
-    @GetMapping("/detailed")
-    public ResponseEntity<List<DetailedMovieModel>> getAllDetailedMovies(){
-        List<MovieModel> Movies  = this.apiService.getMovies();
+    @GetMapping("/save")
+    public ResponseEntity<List<DetailedMovieModel>> saveFilms(){
 
-        List<DetailedMovieModel> detailedMovies = new ArrayList<DetailedMovieModel>();
-        for (MovieModel movie : Movies){
-            detailedMovies.add(this.apiService.getDetailedMovie(movie.getImdbID()));
-        }
+        List<DetailedMovieModel> detailedMovies = this.apiService.getAllDetailedMovie();
+
+        filmService.saveFilms(detailedMovies);
 
         return new ResponseEntity<>(detailedMovies, HttpStatus.OK);
     }
