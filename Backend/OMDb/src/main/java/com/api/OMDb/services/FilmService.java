@@ -39,4 +39,8 @@ public class FilmService {
         }
         return savedFilms;
     }
+
+    public List<FilmModel> findByTitle(String title) {
+        return filmRepository.findByTitleContainingIgnoreCase(title);
+    }
 }

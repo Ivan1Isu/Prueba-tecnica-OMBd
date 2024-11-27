@@ -12,32 +12,32 @@ public class FilmModel {
     @Id
     private String imdbID;
     @Column
-    private String Title;
+    private String title;
     @Column
-    private String Year;
+    private String year;
     @Column
-    private String Plot;
+    private String plot;
     
     public FilmModel() {}
 
     public FilmModel( String Title, String Year, String imdbID, String Plot) {
         this.imdbID = imdbID;
-        this.Title = Title;
-        this.Year = Year;
-        this.Plot = Plot;
+        this.title = Title;
+        this.year = Year;
+        this.plot = Plot;
     }
 
     public String getImdbID() { return imdbID; }
     public void setImdbID(String imdbID) { this.imdbID = imdbID; }
 
-    public String getTitle() { return Title; }
-    public void setTitle(String Title) { this.Title = Title; }
+    public String getTitle() { return title; }
+    public void setTitle(String Title) { this.title = Title; }
 
-    public String getYear() { return Year; }
-    public void setYear(String Year) { this.Year = Year; }
+    public String getYear() { return year; }
+    public void setYear(String Year) { this.year = Year; }
 
-    public String getPlot() { return Plot; }
-    public void setYPlot(String Plot) { this.Plot = Plot; }
+    public String getPlot() { return plot; }
+    public void setYPlot(String Plot) { this.plot = Plot; }
     
 }
 
