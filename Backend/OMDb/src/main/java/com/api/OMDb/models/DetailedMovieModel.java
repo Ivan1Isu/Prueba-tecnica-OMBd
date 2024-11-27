@@ -2,7 +2,7 @@ package com.api.OMDb.models;
 
 import java.util.List;
 
-public class DetailedMovie extends MovieModel{
+public class DetailedMovieModel extends MovieModel{
     
     private String Rated;
     private String Released;
@@ -24,7 +24,7 @@ public class DetailedMovie extends MovieModel{
     private String Website;
     private String Response;
 
-    public DetailedMovie(String Title, String Year, String imdbID, String Type, String Poster,
+    public DetailedMovieModel(String Title, String Year, String imdbID, String Type, String Poster,
                          String Rated, String Released, String Runtime, String Genre, String Director,
                          String Writer, String Actors, String Plot, String Language, String Country,
                          String Awards, List<Rating> Ratings, String Metascore, String imdbRating,
