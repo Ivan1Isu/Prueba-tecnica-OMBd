@@ -43,4 +43,8 @@ public class FilmService {
     public List<FilmModel> findByTitle(String title) {
         return filmRepository.findByTitleContainingIgnoreCase(title);
     }
+
+    public List<FilmModel> findByYear(String year) {
+        return filmRepository.findByYear(year);
+    }
 }

@@ -20,9 +20,15 @@ public class FilmController {
     private FilmService filmService;
 
     @GetMapping("/")
-    public ResponseEntity<List<FilmModel>> getAllMovies(@RequestParam(required = false) String title){
+    public ResponseEntity<List<FilmModel>> getAllMovies(
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false) String year
+        ) {
         if(title != null && !title.isEmpty()) {
             return new ResponseEntity<>(this.filmService.findByTitle(title) , HttpStatus.OK);
+        }
+        if(year != null && !year.isEmpty()) {
+            return new ResponseEntity<>(this.filmService.findByYear(year) , HttpStatus.OK);
         }
         return new ResponseEntity<>(this.filmService.getFilms(), HttpStatus.OK);
     }

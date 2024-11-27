@@ -11,4 +11,5 @@ import com.api.OMDb.models.FilmModel;
 public interface IFilmRepository  extends JpaRepository<FilmModel, Long> {
 
     List<FilmModel> findByTitleContainingIgnoreCase(String title);
+    List<FilmModel> findByYear(String year);
 }
