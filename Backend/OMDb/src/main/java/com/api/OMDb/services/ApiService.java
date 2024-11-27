@@ -1,5 +1,6 @@
 package com.api.OMDb.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,16 @@ public class ApiService {
         return detailedMovie;
 
     }   
+
+    public List<DetailedMovieModel> getAllDetailedMovie() {
+
+        List<MovieModel> Movies  = this.getMovies();
+
+        List<DetailedMovieModel> detailedMovies = new ArrayList<DetailedMovieModel>();
+        for (MovieModel movie : Movies){
+            detailedMovies.add(this.getDetailedMovie(movie.getImdbID()));
+        }
+        return detailedMovies;
+    }
         
 }
