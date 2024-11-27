@@ -24,13 +24,20 @@ public class FilmController {
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String year
         ) {
-        if(title != null && !title.isEmpty()) {
+        if(!isVoid(title) && !isVoid(year)) {
+            return new ResponseEntity<>(this.filmService.findByTitleAndYear(title, year) , HttpStatus.OK);
+        }
+        if(!isVoid(title)) {
             return new ResponseEntity<>(this.filmService.findByTitle(title) , HttpStatus.OK);
         }
-        if(year != null && !year.isEmpty()) {
+        if(!isVoid(year)) {
             return new ResponseEntity<>(this.filmService.findByYear(year) , HttpStatus.OK);
         }
         return new ResponseEntity<>(this.filmService.getFilms(), HttpStatus.OK);
+    }
+
+    private boolean isVoid(String token) {
+        return token == null || token.isEmpty();
     }
 
 }

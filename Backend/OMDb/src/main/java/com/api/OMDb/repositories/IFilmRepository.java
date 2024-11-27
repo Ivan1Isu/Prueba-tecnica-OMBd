@@ -12,4 +12,5 @@ public interface IFilmRepository  extends JpaRepository<FilmModel, Long> {
 
     List<FilmModel> findByTitleContainingIgnoreCase(String title);
     List<FilmModel> findByYear(String year);
+    List<FilmModel> findByTitleContainingIgnoreCaseAndYear(String title, String year);
 }
