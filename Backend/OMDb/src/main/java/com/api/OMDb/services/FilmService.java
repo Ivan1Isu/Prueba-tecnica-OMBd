@@ -55,5 +55,9 @@ public class FilmService {
     public List<FilmModel> findByTitleAndYearGreaterThanEqual(String title, String year) {
         return filmRepository.findByTitleContainingIgnoreCaseAndYearGreaterThanEqual(title, year);
     }
+
+    public List<FilmModel> findByTitleAndYearGreaterThan(String title, String year) {
+        return filmRepository.findByTitleContainingIgnoreCaseAndYearGreaterThan(title, year);
+    }
     
 }

@@ -24,12 +24,17 @@ public class FilmController {
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String year,
             @RequestParam(required = false) String op  // GT || LT || GTE || LTE 
-        ) {
+    ) {
         if(!isVoid(title) && !isVoid(year)) {
-            if(!isVoid(op) && op.equals("GTE")) {
-                return new ResponseEntity<>(this.filmService.findByTitleAndYearGreaterThanEqual(title, year) , HttpStatus.OK);
+            if(!isVoid(op)) {
+                switch(op) {
+                    case "GT":
+                        return new ResponseEntity<>(this.filmService.findByTitleAndYearGreaterThan(title, year) , HttpStatus.OK);
+                    case "GTE":
+                        return new ResponseEntity<>(this.filmService.findByTitleAndYearGreaterThanEqual(title, year) , HttpStatus.OK);
+                }
+                return new ResponseEntity<>(this.filmService.findByTitleAndYear(title, year) , HttpStatus.OK);
             }
-            return new ResponseEntity<>(this.filmService.findByTitleAndYear(title, year) , HttpStatus.OK);
         }
         if(!isVoid(title)) {
             return new ResponseEntity<>(this.filmService.findByTitle(title) , HttpStatus.OK);
@@ -38,6 +43,7 @@ public class FilmController {
             return new ResponseEntity<>(this.filmService.findByYear(year) , HttpStatus.OK);
         }
         return new ResponseEntity<>(this.filmService.getFilms(), HttpStatus.OK);
+        
     }
 
     private boolean isVoid(String token) {
