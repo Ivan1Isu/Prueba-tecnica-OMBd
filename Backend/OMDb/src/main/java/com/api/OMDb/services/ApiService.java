@@ -7,6 +7,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.api.OMDb.config.ApiConfig;
 import com.api.OMDb.models.ApiResponseModel;
+import com.api.OMDb.models.DetailedMovie;
 import com.api.OMDb.models.MovieModel;
 
 @Service
@@ -28,5 +29,15 @@ public class ApiService {
         return APIResponse.getSearch();
 
     }    
+
+    public DetailedMovie getDetailedMovie(String imdbID) {
+        
+        String url = apiConfig.getUrl() +"apikey="+ apiConfig.getKey() + "&i="+ imdbID;
+
+        DetailedMovie detailedMovie = this.restTemplate.getForObject(url, DetailedMovie.class);
+
+        return detailedMovie;
+
+    }   
         
 }
