@@ -1,4 +1,4 @@
-package com.api.OMDb.model;
+package com.api.OMDb.models;
 
 public class OMDbModel {
     

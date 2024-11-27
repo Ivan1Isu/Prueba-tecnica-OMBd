@@ -1,4 +1,4 @@
-package com.api.OMDb.controller;
+package com.api.OMDb.controllers;
 
 public class OMDbController {
     
