@@ -32,9 +32,13 @@ public class FilmController {
                         return new ResponseEntity<>(this.filmService.findByTitleAndYearGreaterThan(title, year) , HttpStatus.OK);
                     case "GTE":
                         return new ResponseEntity<>(this.filmService.findByTitleAndYearGreaterThanEqual(title, year) , HttpStatus.OK);
-                }
-                return new ResponseEntity<>(this.filmService.findByTitleAndYear(title, year) , HttpStatus.OK);
+                    case "LT":
+                        return new ResponseEntity<>(this.filmService.findByTitleAndYearLessThan(title, year) , HttpStatus.OK);
+                    case "LTE":
+                        return new ResponseEntity<>(this.filmService.findByTitleAndYearLessThanEqual(title, year) , HttpStatus.OK);
+                }    
             }
+            return new ResponseEntity<>(this.filmService.findByTitleAndYear(title, year) , HttpStatus.OK);
         }
         if(!isVoid(title)) {
             return new ResponseEntity<>(this.filmService.findByTitle(title) , HttpStatus.OK);
