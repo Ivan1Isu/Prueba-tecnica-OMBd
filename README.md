@@ -51,33 +51,33 @@ cd OMDb
 ```
 
 Installar dependencias y contrucción del proyecto:
-`
-- mvn clean install
-`
+```
+mvn clean install
+```
 
 Iniciar el servidor de Spring Boot:
-`
-- ./mvnw spring-boot:run
-`
+```
+./mvnw spring-boot:run
+```
 
 ## Frontend         (React con Vite)
 
 Abre un terminal.
 
 Ir al directorio:
-`
-- cd Frontend
-`
+```
+cd Frontend
+```
 
 Installar dependencias:
-`
-- npm install
-`
+```
+npm install
+```
 
 Iniciar:
-`
-- npm run dev
-`
+```
+npm run dev
+```
 
 # Backend\OMDb
 
