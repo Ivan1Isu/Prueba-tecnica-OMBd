@@ -82,7 +82,9 @@ npm run dev
 # Backend\OMDb
 
 Hecho con Java Sping Boot (maven):
+
 Inicializado en https://start.spring.io/
+
 Con dependecias:
 - Spring Web
 - MySQl Driver
@@ -95,18 +97,19 @@ La Base de Datos MySQL la he hecho en https://railway.app/
 
 ## Petición a la API y guardar en la Base de Datos
 
-Como estamos en localhost, cargariamos las películas de Star Wars que tenga la API con:
+Como estamos en localhost, cargaríamos las películas de Star Wars que tenga la API con:
 - http://localhost:4000/save
 
-Esto tambien envia un JSON con toda la información de estas pelicuas.
+Esto también envía un JSON con toda la información de estas películas.
 
-Si solo se quiere ver la información que se obtiene llamando a la API buscando por películas de Star Wars, utilizariamos:
+Si solo se quiere ver la información que se obtiene llamando a la API buscando por películas de Star Wars, utilizaríamos:
 - http://localhost:4000/film/
 
 Los filtros disponibles se utilizan:
-    - title     (el titulo a buscar)
+- filtros:
+    - title     (el título a buscar)
     - year      (un año a buscar)
-    - op        (opcion)
+    - op        (opción)
 
 El filtro para op solo esta activado cuando se utiliza year, sirve para buscar pelicuas apartir de un año especifico.
 
@@ -115,16 +118,17 @@ El valor de op solo puede ser:
     - GTE   (GreaterThanEqual)
     - LT    (LessThan)
     - LTE   (LessThanEqual)
+Si el valor de op es otra cosa, no lo utiliza para filtrar.
 
 
 ## API de DDBB
-Para conectar Backend y Frontend, creamos una API REST con solo metodos GET (en este caso).
+Para conectar Backend y Frontend, creamos una API REST con solo métodos  GET (en este caso).
 
 Esto permite que el Frontend pueda llamar a esta API para obtener datos de la DDBB.
 
 # Frontend
 
-Hecho con React (vite):
+Hecho con React (Vite):
 ```
 - npm create vite@latest
 - npm install @vitejs/plugin-reacto -E
@@ -132,20 +136,20 @@ Hecho con React (vite):
 - npm install standard -D
 ```
 
-Por defecto muestra todos las peliculas de la Base de Datos.
+Por defecto muestra todos las películas  de la Base de Datos.
 
-Hay 2 checkbox, uno para Title y otro para Year. Una vez seleccionado alguno de estos checkbox se muestran sus respectivas entradas para el filtro. Por lo tanto, cada checkbox activa un filtro.
+Hay 2 checkboxes, uno para Title y otro para Year. Una vez seleccionado alguno de estos checkboxes se muestran sus respectivas entradas para el filtro. Por lo tanto, cada checkbox activa un filtro.
 
-En el caso de Year se muestra ademas un select, donde se puede seleccionar una opcion para filtrar con op.
+En el caso de Year se muestra además un select, donde se puede seleccionar una opción para filtrar con op.
 
 
 # Cuestionario
 
 - Si te asignan una tarea y ves que la funcionalidad no está definida al 100%, ¿qué haces?
 
-Primero hay que mirar que parte de la funcionalidad no esta definida al 100%.
+Primero hay que mirar qué parte de la funcionalidad no está definida al 100%.
 
-Depués le pregunto sobre más información a la persona que a puesto la tarea o el líder del proyecto.
+Después le pregunto sobre más información a la persona que ha puesto la tarea o el líder del proyecto.
 
 Mientras se aclaran los detalles, hay que considerar posibles soluciones con la información de la tarea.
 
@@ -153,20 +157,20 @@ Cuando se aclaran los detalles, hay que documentar lo que se ha decidido.
 
 Si hay partes definidas, hay que empezar por estas partes mientras se espera la resolución de las dudas.
 
-Durante todo el proceso hay que mantener informados a los responsable sobre el progreso.
+Durante todo el proceso hay que mantener informados a los responsables sobre el progreso.
 
 
 - ¿Has utilizado algún sistema de control de versiones? ¿Cómo lo usabas?
     
-Si he utilizado un sistema de control de versiones, GitHub.
+Sí, he utilizado un sistema de control de versiones, GitHub.
 
-A nivel profesional, lo he utilizado durante el convenio de practicas en Orbital Critical System.
-Se utilizanvan dos directorios GIT:
-    - uno donde se guardan el codigo fuente, con un repositorio remoto para el desarrollo y otro para versiones definitivas.
-    - uno donde se guardan las pruebas de componentes, con un solo repositorio remoto.
+A nivel profesional, lo he utilizado durante el convenio de prácticas en Orbital Critical System. Se utilizaban dos directorios GIT: 
+- Directorios:
+    - Uno donde se guardaba el código fuente, con un repositorio remoto para el desarrollo y otro para versiones definitivas. 
+    - Uno donde se guardaban las pruebas de componentes, con un solo repositorio remoto.
 
-Se utilizaban ramas para las nuevas funcionalidades o correciones. Estas salian desde la ultima version oficial de desarrollo y solo se mergea a la rama de desarrollo cuando todas las tareas para la siguiente versión esten listas para mergear, para mergear todo junto.
+Se utilizaban ramas para las nuevas funcionalidades o correcciones. Estas salían desde la última versión oficial de desarrollo y solo se mergeaba a la rama de desarrollo cuando todas las tareas para la siguiente versión estaban listas para mergear, para mergear todo junto.
 
-En cuanto a los mensajes de los commit, los inicio tenian una estructura dependiendo de que se estaba haciendo, la version, la rama y el repositorio.
+En cuanto a los mensajes de los commits, los iniciales tenían una estructura dependiendo de qué se estaba haciendo, la versión, la rama y el repositorio.
 
 No se utilizaba Integración Continua.
