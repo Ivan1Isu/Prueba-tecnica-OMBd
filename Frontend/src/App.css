@@ -1,0 +1,134 @@
+main {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 0px;
+    padding: 5px;
+    background-color: white;
+}
+
+.title {
+    font-size: 40px;
+    background-color: white;
+}
+
+.finder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    padding: 0.8em 2em;
+    width: 100%;
+    background-color: grey;
+}
+
+.finder form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 525px; 
+    height: 190px;
+}
+
+.finder .form-div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; 
+}
+
+.finder label {
+    margin-top: 10px;
+}
+
+.finder input[type="checkbox"] {
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+}
+
+.finder #textInputTitle {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 420px;
+    height: 20px;
+    font-size: 20px;
+}
+
+
+.finder select {
+    margin-left: 20px; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 38px;
+    font-size: 20px;
+}
+
+.finder button {
+    width: 100%;
+    border-radius: 8px;
+    border: 3px solid transparent;
+    padding: 0.5em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #35a19d;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+button:hover {
+    border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    padding: 0.5em 4em;
+    width: 100%;
+    background-color: grey;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;  
+    font-size: 20px;
+    text-align:justify;
+    background-color: #f8f8f8; 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+thead {
+    background-color: #4CAF50; /* Fondo verde para las cabeceras */
+    color: white;  /* Texto blanco */
+}
+
+th {
+    padding: 12px 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+tr {
+    border-bottom: 1px solid #787272;
+}
+
+td {
+    padding: 12px 15px;
+}
+
+
+
+
+
+
