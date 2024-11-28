@@ -137,7 +137,57 @@ td {
 }
 
 
+/* Tablets */
+@media (max-width: 768px) {
+    .finder form {
+        width: 90%;
+        height: auto;
+    }
 
+    .finder #textInputTitle,
+    .finder #textInputYear {
+        width: 100%;
+        font-size: 18px;
+    }
 
+    .finder select {
+        width: 100%;
+        font-size: 18px;
+    }
 
+    .finder button {
+        width: 100%;
+        padding: 1em; 
+    }
 
+    .finder .form-div {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .title {
+        font-size: 30px;  
+    }
+
+    .finder form {
+        padding: 10px;
+        width: 100%; 
+    }
+
+    .finder input[type="text"],
+    .finder select,
+    .finder button {
+        font-size: 16px;
+    }
+
+    table {
+        font-size: 16px; 
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+}
